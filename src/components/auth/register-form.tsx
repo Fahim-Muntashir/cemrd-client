@@ -10,8 +10,9 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { FormError } from '../form-error';
 import { FormSuccess } from '../form-success';
-import { login } from '../../../actions/login';
+import { register } from '../../services/actions/register';
 import { useState, useTransition } from 'react';
+import { modifyPayload } from '../../utils/modifyPayload';
 
 export const RegisterForm = () => {
 
@@ -29,16 +30,12 @@ export const RegisterForm = () => {
         }
     })
 
-    const onSubmit = (values: z.infer<typeof RegisterSchema>) => {
+    const onSubmit = async (values: z.infer<typeof RegisterSchema>) => {
         setError("");
         setSuccess("");
-        startTransition(() => {
-            login(values)
-                .then((data) => {
-                    setError(data.error);
-                    setSuccess(data.success);
-                })
-        })
+        const res = await register(values)
+        console.log(res);;
+
     }
 
     return (
