@@ -12,8 +12,12 @@ import { FormError } from '../form-error';
 import { FormSuccess } from '../form-success';
 import { login } from '../../services/actions/login';
 import { useState, useTransition } from 'react';
+import { storeUserInfo } from '@/services/auth.service';
+import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
 
 export const LoginForm = () => {
+    const router = useRouter();
 
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
@@ -28,15 +32,23 @@ export const LoginForm = () => {
         }
     })
 
-    const onSubmit = (values: z.infer<typeof LoginSchema>) => {
+    const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
         setError("");
         setSuccess("");
-        startTransition(() => {
-            login(values)
-                .then((data) => {
-                    setError(data.error);
-                    setSuccess(data.success);
-                })
+        startTransition(async () => {
+            try {
+                const res = await login(values)
+                console.log(res);
+                if (res?.data?.accessToken) {
+                    setSuccess(res.message)
+
+                    storeUserInfo({ accessToken: res?.data?.accessToken })
+
+                    router.push("/")
+                }
+            } catch (err: any) {
+                console.log(err.message);
+            }
         })
     }
 

@@ -1,8 +1,11 @@
+'use client'
 
 import { Button } from "@/components/ui/button";
 import { getUserInfo, removeUser } from "@/services/auth.service";
+
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import AccountMenu from "../AccountMenu/AccountMenu";
 
 const AuthButton = () => {
     const userInfo = getUserInfo();
@@ -18,11 +21,13 @@ const AuthButton = () => {
         <>
             {userInfo?.userId ?
 
-                (< Button color="error" onClick={handleLogout}>Logout</Button>
+                (<>
+                    <AccountMenu></AccountMenu>
+                </>
                 ) :
-                (< Button variant="destructive">
+                (< Button variant="default">
 
-                    <Link href={'/login'}>Login
+                    <Link href={'/auth/login'}>Login
                     </Link>
 
                 </Button>)}

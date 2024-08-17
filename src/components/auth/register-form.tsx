@@ -13,9 +13,13 @@ import { FormSuccess } from '../form-success';
 import { register } from '../../services/actions/register';
 import { useState, useTransition } from 'react';
 import { modifyPayload } from '../../utils/modifyPayload';
+import { login } from '@/services/actions/login';
+import { toast } from 'sonner';
+import { storeUserInfo } from '@/services/auth.service';
+import { useRouter } from 'next/navigation';
 
 export const RegisterForm = () => {
-
+    const router = useRouter();
     const [error, setError] = useState<string | undefined>("");
     const [success, setSuccess] = useState<string | undefined>("");
 
@@ -33,8 +37,22 @@ export const RegisterForm = () => {
     const onSubmit = async (values: z.infer<typeof RegisterSchema>) => {
         setError("");
         setSuccess("");
-        const res = await register(values)
-        console.log(res);;
+        try {
+            const res = await register(values);
+
+            const result = await login({ password: values.password, email: values.email })
+
+            if (result?.data?.accessToken) {
+                toast.success(res.message)
+
+                storeUserInfo({ accessToken: result?.data?.accessToken })
+
+                router.push("/")
+            }
+
+        } catch (err: any) {
+            console.log(err.message);
+        }
 
     }
 
