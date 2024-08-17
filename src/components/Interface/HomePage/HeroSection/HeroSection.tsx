@@ -31,7 +31,7 @@ export default function HeroSection() {
         >
             <SwiperSlide>
 
-                <section className="w-full bg-gradient-to-r from-primary to-secondary py-20 md:py-32">
+                <section className="w-full bg-gradient-to-r from-primary to-slate-700 py-20 ">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                             <div className="space-y-6">
@@ -64,7 +64,7 @@ export default function HeroSection() {
                 </section>                    </SwiperSlide>
             <SwiperSlide>
 
-                <section className="w-full bg-gradient-to-r from-primary to-secondary py-20 md:py-32">
+                <section className="w-full bg-gradient-to-r from-primary to-secondary py-20">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                             <div className="space-y-6">
@@ -97,7 +97,7 @@ export default function HeroSection() {
                 </section>                    </SwiperSlide>
             <SwiperSlide>
 
-                <section className="w-full bg-gradient-to-r from-primary to-secondary py-20 md:py-32">
+                <section className="w-full bg-gradient-to-r from-primary to-secondary py-20 ">
                     <div className="container mx-auto px-4 md:px-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                             <div className="space-y-6">

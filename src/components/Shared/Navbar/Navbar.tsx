@@ -5,6 +5,7 @@ import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
 import AccountMenu from "../../Interface/AccountMenu/AccountMenu"
 import dynamic from "next/dynamic"
 import Container from "../Container"
+import Image from "next/image"
 
 export default function Navbar() {
 
@@ -19,7 +20,10 @@ export default function Navbar() {
             <Container>
                 <div className=" mx-auto flex h-16 items-center justify-between ">
                     <Link href="#" className="flex items-center gap-2" prefetch={false}>
-                        <MountainIcon className="h-6 w-6" />
+                        <Image src={
+
+                            "https://i.ibb.co/HpYr1kc/logo.png"
+                        } height={200} width={170} alt="cemrd logo"></Image>
                         <span className="sr-only">Acme Inc</span>
                     </Link>
                     <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
