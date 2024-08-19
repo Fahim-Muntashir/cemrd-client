@@ -9,14 +9,14 @@ export const storeUserInfo = ({ accessToken }: { accessToken: string }) => {
 export const getUserInfo=() => {
     const authToken = getFromLocalStorage(authKey);
     if (authToken) {
-        const decodedData:any = decodedToken(authToken);
+        const decodedData: any = decodedToken(authToken);
+        console.log(decodedData?.userData?.role);
         return {
-            ...decodedData,
-            role:decodedData?.role.toLowerCase(),
+            ...decodedData.userData,
+            role:decodedData?.userData?.role.toLowerCase(),
     }
     }
 }
-
 
 
 export const isLoggedIn = () => {

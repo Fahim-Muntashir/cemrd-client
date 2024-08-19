@@ -1,15 +1,13 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
-import AccountMenu from "../../Interface/AccountMenu/AccountMenu"
 import dynamic from "next/dynamic"
 import Container from "../Container"
 import Image from "next/image"
 
 export default function Navbar() {
 
-    const AuthButton = dynamic(() => import('@/components/Interface/AuthButton/AuthButton'),
+    const AccountMenu = dynamic(() => import('@/components/Interface/AccountMenu/AccountMenu'),
         {
             ssr: false
         })
@@ -57,7 +55,7 @@ export default function Navbar() {
                         </Link>
                     </nav>
                     <div className="flex items-center gap-4">
-                        <p><AuthButton></AuthButton></p>
+                        <p><AccountMenu></AccountMenu></p>
 
                         <Sheet>
                             <SheetTrigger asChild>
