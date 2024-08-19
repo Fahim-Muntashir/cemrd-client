@@ -5,14 +5,26 @@ import { FaGithub } from "react-icons/fa";
 import { Button } from "../ui/button";
 import { signIn } from 'next-auth/react'
 import { socialUser } from "@/utils/social-user";
+import { storeUserInfo } from "@/services/auth.service";
 
 export const Social = () => {
-    const handleSocialLogin = (provider: string) => {
+    const handleSocialLogin = async (provider: string) => {
 
-        signIn(`${provider}`, {
+        await signIn(`${provider}`, {
             callbackUrl: "/",
         });
-        socialUser()
+        await socialUser()
+
+        try {
+            const res = await socialUser()
+            console.log(res);
+            if (res?.data?.accessToken) {
+                storeUserInfo({ accessToken: res?.data?.accessToken })
+            }
+        } catch (err: any) {
+            console.log(err.message);
+        }
+
     }
 
     return (

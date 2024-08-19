@@ -1,8 +1,11 @@
 "use server";
 
-export const login = async (values) => {
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/auth/login`, {
+export const SocialLogin = async (values: any) => {
+
+    console.log(values);
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/auth/social-login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
