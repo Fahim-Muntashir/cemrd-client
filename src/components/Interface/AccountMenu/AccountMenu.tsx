@@ -1,11 +1,11 @@
 'use client'
 import { Button } from '@/components/ui/button';
-import { getUserInfo, removeUser } from '@/services/auth.service';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { RiLogoutBoxLine } from "react-icons/ri";
 import AuthButton from '../AuthButton/AuthButton';
+import { getUserInfo, removeUser } from '@/services/auth.service';
 
 export default function AccountMenu() {
     const [dropdownOpen, setDropdownOpen] = useState(false);

@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { FaCircleChevronLeft } from "react-icons/fa6";
 import { DashboardNav } from './dashboard-nav';
-import { navItems } from '@/constants/data';
+import { navItems } from '../../../constants/data';
 import { useSidebar } from '@/hooks/useSidebar';
 import Image from 'next/image';
 

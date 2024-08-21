@@ -2,7 +2,8 @@
 import * as z from 'zod';
 
 import { LoginSchema } from '../../../schemas';
-import { modifyPayload } from '@/utils/modifyPayload';
+import { modifyPayload } from '../../utils/modifyPayload';
+import { cookies } from "next/headers";
 
 export const login = async (values: z.infer<typeof LoginSchema>) => {
 
@@ -15,10 +16,14 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            credentials: 'include',
         },
         body: JSON.stringify(values),
         cache: "no-store"
     })
+    const cookie = res.headers.get('set-cookie') || '';
+    console.log(cookies);
+    cookies().set("refreshToken", cookie);
 
     const userInfo = await res.json();
     return userInfo;

@@ -4,7 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { Button } from "../ui/button";
 import { signIn } from 'next-auth/react'
-import { socialUser } from "@/utils/social-user";
+import { socialUser } from "../../utils/social-user";
 import { storeUserInfo } from "@/services/auth.service";
 
 export const Social = () => {

@@ -10,11 +10,13 @@ import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 import { FormError } from '../form-error';
 import { FormSuccess } from '../form-success';
-import { login } from '../../services/actions/login';
+
 import { useState, useTransition } from 'react';
-import { storeUserInfo } from '@/services/auth.service';
+
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
+import { storeUserInfo } from '@/services/auth.service';
+import { login } from '@/services/actions/login';
 
 export const LoginForm = () => {
     const router = useRouter();
