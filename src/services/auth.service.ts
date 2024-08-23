@@ -29,5 +29,7 @@ export const isLoggedIn = () => {
 
 
 export const removeUser = () => {
+
+
     return removeFromLocalStorage(authKey);
 }

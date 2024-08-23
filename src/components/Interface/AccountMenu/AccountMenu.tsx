@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { RiLogoutBoxLine } from "react-icons/ri";
 import AuthButton from '../AuthButton/AuthButton';
 import { getUserInfo, removeUser } from '@/services/auth.service';
+import removeCookie from '@/utils/cookie';
 
 export default function AccountMenu() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -14,6 +15,7 @@ export default function AccountMenu() {
     const router = useRouter()
 
     const handleLogout = () => {
+        removeCookie()
         removeUser();
         router.refresh()
     }
@@ -25,7 +27,7 @@ export default function AccountMenu() {
     };
 
     return (
-        <div className="relative">
+        <div className="relative z-50">
 
 
             {userInfo ? <>
@@ -44,10 +46,10 @@ export default function AccountMenu() {
                         <Link href="/dashbord/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                             {userInfo.name}
                         </Link>
-                        <Link href="/dashbord/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <Link href="/dashboard/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                             Profile
                         </Link>
-                        <Link href="/dashbord/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <Link href="/dashboard/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                             Dashbord
                         </Link>
 
