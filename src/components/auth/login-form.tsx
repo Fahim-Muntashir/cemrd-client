@@ -44,7 +44,6 @@ export const LoginForm = () => {
                 if (res?.data?.accessToken) {
                     setSuccess(res.message)
                     storeUserInfo({ accessToken: res?.data?.accessToken })
-                    console.log(res?.data?.accessToken, "token is");
                     router.push("/")
                 }
             } catch (err: any) {

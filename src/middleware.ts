@@ -3,13 +3,14 @@ import { jwtDecode, JwtPayload } from "jwt-decode";
 
 // Define route arrays for different user roles
 const USER_ROUTES = [
-  "/dashboard/users",
+  "/dashboard/publications",
   "/dashboard/user/change-password",
 ];
 
 const ADMIN_ROUTES = [
   "/dashboard",
-  "/dashboard/users",
+  "/dashboard/publications",
+  "/dashboard/admin/manage-users",
   "/dashboard/admin/profile",
   "/dashboard/admin/change-password",
 ];
@@ -84,15 +85,28 @@ export async function middleware(request: NextRequest) {
     }
 
 
-    // Redirect to not-found page if access is unauthorized
-    if ((isAdminPath && role !== 'ADMIN') ||
-      (isSuperAdminPath && role !== 'SUPER_ADMIN') ||
-      (isUserPath && role !== 'USER')) {
-      console.log("Access denied for path:", pathname);
-      url.pathname = '/not-found';
-      return NextResponse.redirect(url);
-    }
-  } else {
+// Redirect to not-found page if access is unauthorized
+if ((isAdminPath && role !== 'ADMIN') || 
+(isSuperAdminPath && role !== 'SUPER_ADMIN') || 
+(isUserPath && role !== 'USER')) {
+console.log("Access denied for path:", pathname);
+url.pathname = '/not-found';
+return NextResponse.redirect(url);
+}
+  }
+
+  
+  else {
+
+    const isPublicRoute = !USER_ROUTES.includes(pathname) &&
+    !ADMIN_ROUTES.includes(pathname) &&
+    !SUPER_ADMIN_ROUTES.includes(pathname);
+
+if (isPublicRoute) {
+return NextResponse.next();
+}
+
+
     // Redirect to login page if no token is found
     console.log("No token found");
     url.pathname = "/signin";

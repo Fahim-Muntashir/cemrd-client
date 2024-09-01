@@ -42,7 +42,7 @@ export default function AccountMenu() {
                     />
                 </button>
                 {dropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg">
+                    <div className="absolute right-0 mt-2 w-48 bg-white border z-[2000] overflow-hidden border-gray-200 rounded-md shadow-lg">
                         <Link href="/dashbord/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                             {userInfo.name}
                         </Link>

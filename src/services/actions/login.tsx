@@ -3,7 +3,7 @@ import * as z from 'zod';
 
 import { LoginSchema } from '../../../schemas';
 import { modifyPayload } from '../../utils/modifyPayload';
-import { cookies } from "next/headers";
+import { cookies } from 'next/headers';
 
 export const login = async (values: z.infer<typeof LoginSchema>) => {
 
