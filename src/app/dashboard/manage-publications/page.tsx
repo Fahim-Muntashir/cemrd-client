@@ -7,6 +7,8 @@ import Container from '@/components/Shared/Container'
 import { getAllPublications } from '@/services/actions/publication'
 import { Scrollbar } from 'react-scrollbars-custom';
 import PageContainer from "@/components/layout/page-container"
+import DeleteButton from "@/components/Interface/actionButton/DeleteButton"
+import Link from "next/link"
 
 const Page = async () => {
 
@@ -29,8 +31,8 @@ const Page = async () => {
 
 
             {
-                data.map((data) => (
-                    <Card className="w-full">
+                data.map((data: any) => (
+                    <Card className="w-full my-2">
                         <CardContent className="p-6">
                             <div className="flex justify-between items-start">
                                 <div className="space-y-2">
@@ -49,12 +51,11 @@ const Page = async () => {
                                     </div>
                                 </div>
                                 <div className="flex space-x-2">
-                                    {/* <Button variant="outline" size="icon" onClick={() => handleEdit()}>
-                                    <EditIcon className="h-4 w-4" />
-                                </Button>
-                                <Button variant="destructive" size="icon" onClick={handleDelete} >
-                                    <TrashIcon className="h-4 w-4" />
-                                </Button> */}
+                                    <Link className="p-2.5 rounded-md hover:bg-green text-white bg-green-600" href={`manage-publications/${data?.id}`}>
+                                        <EditIcon className="h-4 w-4" />
+                                    </Link>
+
+                                    <DeleteButton link={`publications/${data?.id}`}></DeleteButton>
                                 </div>
                             </div>
                             <div className="mt-4">

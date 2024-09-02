@@ -125,7 +125,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: 'Add Publications',
-    href: '/dashboard/publications',
+    href: '/dashboard/add-publications',
     icon: 'add',
     label: 'employee'
   },
