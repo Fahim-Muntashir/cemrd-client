@@ -40,11 +40,11 @@ export default function Navbar() {
                             Research
                         </Link>
                         <Link
-                            href="#"
+                            href="/publications"
                             className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
                             prefetch={false}
                         >
-                            Services
+                            Publications
                         </Link>
                         <Link
                             href="#"

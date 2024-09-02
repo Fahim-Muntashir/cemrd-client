@@ -1,5 +1,5 @@
 import React from 'react';
-import PubCards from '../../common/PubCars';
+import PubCards from '../../common/PubCard';
 import Container from '@/components/Shared/Container';
 import CommonHeader from '../../common/CommonHeader';
 import Link from 'next/link';

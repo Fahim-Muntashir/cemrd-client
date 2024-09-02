@@ -3,12 +3,28 @@ import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 import { FaUsers } from "react-icons/fa"
 
-export default function PubCards() {
+export type Publication = {
+    id: string;
+    name: string;
+    image: string;
+    title: string;
+    subtitle: string;
+    description: string;
+    date: string; // ISO date string
+    authors: string;
+    category: string;
+    link: string;
+    userInfoId: string;
+};
+
+
+export default function PubCards({ publication }: { publication: Publication }) {
+    console.log(publication, "single");
     return (
         <Card className="w-full max-w-lg my-4">
             <CardContent className="grid gap-4">
                 <img
-                    src="https://www.summithealth.com/sites/default/files/2023-04/heart-disease-hub.jpg"
+                    src={publication.image}
                     alt="Blog post cover image"
                     width="400"
                     height="240"
@@ -17,26 +33,30 @@ export default function PubCards() {
                 />
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <CalendarDaysIcon className="w-4 h-4" />
-                    <span>August 17, 2024</span>
-                </div>
+                    <span>
+                        {new Date(publication.date).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        })}
+                    </span>                </div>
                 <div className="flex gap-2 text-sm text-muted-foreground">
                     <FaUsers
 
-                        className="w-10 h-10" />
-                    <span>Mahmudul Hasan, Md Abdus Sahid, Md Palash Uddin, Md Abu Marjan, Seifedine Kadry, Jungeun Kim</span>
+                        className="w-6 h-6" />
+                    <span>{publication.authors}</span>
                 </div>
-                <h3 className="text-xl font-semibold">
-                    Effect of imbalance data handling techniques to improve the accuracy of heart disease prediction using machine
-                    learning and deep learning
+                <h3 className="font-semibold text-justify">
+                    {publication.title}
                 </h3>
                 <div className="flex justify-end">
-                    <Link href="#" className="inline-flex items-center gap-2 text-primary" prefetch={false}>
+                    <Link href={`/publications/${publication.id}`} className="inline-flex items-center gap-2 text-primary" prefetch={false}>
                         See More
                         <ArrowRightIcon className="w-4 h-4" />
                     </Link>
                 </div>
             </CardContent>
-        </Card>
+        </Card >
     )
 }
 

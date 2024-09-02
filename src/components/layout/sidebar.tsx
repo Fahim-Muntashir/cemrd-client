@@ -4,9 +4,9 @@ import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { FaCircleChevronLeft } from "react-icons/fa6";
 import { DashboardNav } from './dashboard-nav';
-import { navItems } from '../../../constants/data';
 import { useSidebar } from '@/hooks/useSidebar';
 import Image from 'next/image';
+import { navItems } from '../../../constants/data';
 
 type SidebarProps = {
     className?: string;
@@ -29,7 +29,7 @@ export default function Sidebar({ className }: SidebarProps) {
         >
             <div className="hidden p-5 pt-10 lg:block">
                 <Link
-                    href={'https://github.com/Kiranism/next-shadcn-dashboard-starter'}
+                    href={'/'}
                     target="_blank"
                 >
                     <Image src={
