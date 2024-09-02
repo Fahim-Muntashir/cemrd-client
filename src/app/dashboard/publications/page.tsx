@@ -16,6 +16,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { submitPublication } from '@/services/actions/publication'
 import { getUserInfo } from '@/services/auth.service'
+import { toast } from 'sonner'
 
 
 type FormData = {
@@ -34,17 +35,15 @@ export default function Page() {
 
     const userInfo = getUserInfo();
 
-    const { register, handleSubmit, control, formState: { errors } } = useForm<FormData>()
+    const { register, handleSubmit, reset, control, formState: { errors } } = useForm<FormData>()
 
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
 
         console.log(data);
-
         const formData = new FormData();
         if (data.image) {
             formData.append('file', data.image[0]);
         }
-
         data = ({
             ...data,
             date: data.date, // No need to format the date if it's already in ISO format
@@ -56,7 +55,13 @@ export default function Page() {
 
         console.log(data);
 
-        await submitPublication(formData);
+        const res = await submitPublication(formData);
+
+        if (res.success) {
+            toast.success("Publication Added successfully")
+            reset();
+        }
+
     }
 
     return (
@@ -68,19 +73,10 @@ export default function Page() {
                 <CardContent>
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
-                                <Label htmlFor="name">Name</Label>
-                                <Input
-                                    id="name"
-                                    {...register("name", { required: "Name is required" })}
-                                    placeholder="Enter name"
-                                />
-                                {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>}
-                            </div>
 
-                            <div className="space-y-2">
+                            <div className="space-y-2 md:col-span-2">
                                 <Label htmlFor="title">Title</Label>
-                                <Input
+                                <Textarea
                                     id="title"
                                     {...register("title", { required: "Title is required" })}
                                     placeholder="Enter title"
@@ -90,7 +86,7 @@ export default function Page() {
 
                             <div className="space-y-2 md:col-span-2">
                                 <Label htmlFor="subtitle">Subtitle</Label>
-                                <Input
+                                <Textarea
                                     id="subtitle"
                                     {...register("subtitle")}
                                     placeholder="Enter subtitle"
@@ -113,9 +109,10 @@ export default function Page() {
                                     id="link"
                                     {...register("link", {
                                         pattern: {
-                                            value: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/,
+                                            value: /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?(\?.*)?$/,
                                             message: "Invalid URL format"
                                         }
+
                                     })}
                                     placeholder="Enter link"
                                     type="url"

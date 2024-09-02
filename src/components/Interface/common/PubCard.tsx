@@ -24,7 +24,7 @@ export default function PubCards({ publication }: { publication: Publication }) 
         <Card className="w-full max-w-lg my-4">
             <CardContent className="grid gap-4">
                 <img
-                    src={publication.image}
+                    src={publication?.image}
                     alt="Blog post cover image"
                     width="400"
                     height="240"
@@ -34,7 +34,7 @@ export default function PubCards({ publication }: { publication: Publication }) 
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <CalendarDaysIcon className="w-4 h-4" />
                     <span>
-                        {new Date(publication.date).toLocaleDateString('en-US', {
+                        {new Date(publication?.date).toLocaleDateString('en-US', {
                             year: 'numeric',
                             month: 'long',
                             day: 'numeric'
@@ -44,13 +44,13 @@ export default function PubCards({ publication }: { publication: Publication }) 
                     <FaUsers
 
                         className="w-6 h-6" />
-                    <span>{publication.authors}</span>
+                    <span>{publication?.authors}</span>
                 </div>
                 <h3 className="font-semibold text-justify">
-                    {publication.title}
+                    {publication?.title}
                 </h3>
                 <div className="flex justify-end">
-                    <Link href={`/publications/${publication.id}`} className="inline-flex items-center gap-2 text-primary" prefetch={false}>
+                    <Link href={`/publications/${publication?.id}`} className="inline-flex items-center gap-2 text-primary" prefetch={false}>
                         See More
                         <ArrowRightIcon className="w-4 h-4" />
                     </Link>

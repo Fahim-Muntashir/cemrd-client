@@ -10,7 +10,8 @@ export async function submitPublication(formData: FormData) {
     });
 
     const result = await response.json();
-    console.log(result);
+    return result;
+
 }
 
 export async function getAllPublications() {
@@ -24,3 +25,13 @@ export async function getAllPublications() {
     return result.data;
 }
 
+export async function getSinglePublication(id: string) {
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/publications/${id}`, {
+        method: 'GET',
+        credentials: 'include',
+    });
+
+    const result = await response.json();
+    return result.data;
+}

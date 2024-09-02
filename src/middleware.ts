@@ -10,6 +10,7 @@ const USER_ROUTES = [
 const ADMIN_ROUTES = [
   "/dashboard",
   "/dashboard/publications",
+  "/dashboard/publications/:id",
   "/dashboard/admin/manage-users",
   "/dashboard/admin/profile",
   "/dashboard/admin/change-password",
