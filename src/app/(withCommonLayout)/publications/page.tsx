@@ -5,10 +5,7 @@ import { getAllPublications } from '@/services/actions/publication';
 import React from 'react';
 
 const page = async () => {
-
     const res: Publication[] = await getAllPublications();
-
-    console.log(res, "Asdf");
 
     return (
         <Container>
@@ -18,7 +15,6 @@ const page = async () => {
                         <PubCards key={index} publication={publication} />
                     ))
                 }
-
             </div>
         </Container>
     );

@@ -1,11 +1,8 @@
-
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
-import { CalendarIcon, UsersIcon, EditIcon, TrashIcon } from "lucide-react"
-import Container from '@/components/Shared/Container'
+import { CalendarIcon, UsersIcon, EditIcon, } from "lucide-react"
 import { getAllPublications } from '@/services/actions/publication'
-import { Scrollbar } from 'react-scrollbars-custom';
 import PageContainer from "@/components/layout/page-container"
 import DeleteButton from "@/components/Interface/actionButton/DeleteButton"
 import Link from "next/link"
@@ -15,24 +12,13 @@ const Page = async () => {
     // This would typically come from props or a data fetch
     const data = await getAllPublications();
 
-    const handleEdit = () => {
-        // Navigate to edit page or open edit modal
-    }
-
-    const handleDelete = async () => {
-        // Simulating delete operation
-
-        console.log('data deleted')
-    }
 
     return (
         <PageContainer scrollable={true}>
             <br />
-
-
             {
                 data.map((data: any) => (
-                    <Card className="w-full my-2">
+                    <Card className="w-full my-2" key={data}>
                         <CardContent className="p-6">
                             <div className="flex justify-between items-start">
                                 <div className="space-y-2">

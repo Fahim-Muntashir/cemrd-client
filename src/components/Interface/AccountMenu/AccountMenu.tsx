@@ -20,8 +20,6 @@ export default function AccountMenu() {
         router.refresh()
     }
 
-    console.log(userInfo);
-
     const toggleDropdown = () => {
         setDropdownOpen(!dropdownOpen);
     };
