@@ -5,8 +5,6 @@ import { cookies } from "next/headers";
 
 export const SocialLogin = async (values: any) => {
 
-    console.log(values);
-
     const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/auth/social-login`, {
         method: "POST",
         headers: {

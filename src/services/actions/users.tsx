@@ -21,10 +21,6 @@ export async function updateUserRole(id: string, role: { role: string }) {
         body: JSON.stringify(role),
     });
 
-    if (!response.ok) {
-        throw new Error(`Failed to update role: ${response.statusText}`);
-    }
-
     const result = await response.json();
     return result;
 }

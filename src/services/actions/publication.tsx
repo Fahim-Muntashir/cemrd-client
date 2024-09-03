@@ -10,6 +10,7 @@ export async function submitPublication(formData: FormData) {
     });
 
     const result = await response.json();
+
     return result;
 
 }

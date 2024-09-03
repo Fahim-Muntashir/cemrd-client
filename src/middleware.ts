@@ -7,7 +7,7 @@ const USER_ROUTES = [
   "/dashboard/user/change-password",
 ];
 
-const ADMIN_ROUTES = [
+const FACULTY_ROUTES = [
   "/dashboard",
   "/dashboard/publications",
   "/dashboard/publications/:id",
@@ -16,14 +16,14 @@ const ADMIN_ROUTES = [
   "/dashboard/admin/change-password",
 ];
 
-const SUPER_ADMIN_ROUTES = [
-  ...ADMIN_ROUTES,
+const ADMIN_ROUTES= [
+  ...FACULTY_ROUTES,
   "/dashboard/super-admin/admins",
   "/dashboard/super-admin/add-admin",
 ];
 
 // Define roles
-type Role = 'USER' | 'ADMIN' | 'SUPER_ADMIN';
+type Role = 'USER' | 'FACULTY' | 'ADMIN';
 
 interface CustomJwtPayload extends JwtPayload {
   id: string;
@@ -64,8 +64,8 @@ export async function middleware(request: NextRequest) {
     const { role } = user;
 
     // Role-based route protection
-    const isAdminPath = ADMIN_ROUTES.includes(pathname);
-    const isSuperAdminPath = SUPER_ADMIN_ROUTES.includes(pathname);
+    const isAdminPath = FACULTY_ROUTES.includes(pathname);
+    const isSuperAdminPath = ADMIN_ROUTES.includes(pathname);
     const isUserPath = USER_ROUTES.includes(pathname);
 
     console.log("User Role:", role);
@@ -74,11 +74,11 @@ export async function middleware(request: NextRequest) {
     console.log("Is User Path:", isUserPath);
 
     // Redirect to not-found page if access is unauthorized
-    if ((isAdminPath && role == 'ADMIN')) {
+    if ((isAdminPath && role == 'FACULTY')) {
       return NextResponse.next();
 
     }
-    if (isSuperAdminPath && role == 'SUPER_ADMIN') {
+    if (isSuperAdminPath && role == 'ADMIN') {
       return NextResponse.next();
     }
     if (isUserPath && role == 'USER') {
@@ -87,8 +87,8 @@ export async function middleware(request: NextRequest) {
 
 
 // Redirect to not-found page if access is unauthorized
-if ((isAdminPath && role !== 'ADMIN') || 
-(isSuperAdminPath && role !== 'SUPER_ADMIN') || 
+if ((isAdminPath && role !== 'FACULTY') || 
+(isSuperAdminPath && role !== 'ADMIN') || 
 (isUserPath && role !== 'USER')) {
 console.log("Access denied for path:", pathname);
 url.pathname = '/not-found';
@@ -100,8 +100,8 @@ return NextResponse.redirect(url);
   else {
 
     const isPublicRoute = !USER_ROUTES.includes(pathname) &&
-    !ADMIN_ROUTES.includes(pathname) &&
-    !SUPER_ADMIN_ROUTES.includes(pathname);
+    !FACULTY_ROUTES.includes(pathname) &&
+    !ADMIN_ROUTES.includes(pathname);
 
 if (isPublicRoute) {
 return NextResponse.next();

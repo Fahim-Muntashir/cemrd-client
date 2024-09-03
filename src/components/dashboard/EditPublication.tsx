@@ -53,8 +53,6 @@ const EditPublication = ({ id }: { id: string }) => {
     }, [id, reset]);
 
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-
-        console.log(data);
         const formData = new FormData();
         if (data.image) {
             formData.append('file', data.image[0]);
@@ -68,7 +66,6 @@ const EditPublication = ({ id }: { id: string }) => {
         const { image, ...dataWithoutImage } = data; // Remove image property
         formData.append('data', JSON.stringify(dataWithoutImage));
 
-        console.log(data);
 
         const res = await updatePublication(formData, id);
 
