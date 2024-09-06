@@ -15,10 +15,12 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getSinglePublication, submitPublication, updatePublication } from '@/services/actions/publication';
+
 import { getUserInfo } from '@/services/auth.service';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
+import { getSinglePublication } from '@/services/actions/fpublication';
+import { updatePublication } from '@/services/actions/publication';
 
 type FormData = {
     name: string;
@@ -28,11 +30,13 @@ type FormData = {
     link: string;
     authors: string;
     date: string;
+    vanue: string;
     image?: File[];
     category: string;
 };
 
 const EditPublication = ({ id }: { id: string }) => {
+
     const [loading, setLoading] = useState(true);
     const { register, handleSubmit, reset, control, formState: { errors } } = useForm<FormData>();
     const userInfo = getUserInfo();
@@ -138,11 +142,12 @@ const EditPublication = ({ id }: { id: string }) => {
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="photo">Photo</Label>
+                                <Label htmlFor="photo">Vanue</Label>
                                 <Input
-                                    type="file"
-                                    {...register('image')}
-                                />
+                                    id="vanue"
+                                    {...register("vanue", { required: "Authors are required" })}
+                                    placeholder="Enter authors"
+                                />   {errors.authors && <p className="text-red-500 text-sm">{errors.authors.message}</p>}
                             </div>
 
                             <div className="space-y-2">

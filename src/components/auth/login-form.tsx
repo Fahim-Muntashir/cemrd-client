@@ -40,7 +40,6 @@ export const LoginForm = () => {
         startTransition(async () => {
             try {
                 const res = await login(values)
-                console.log(res);
                 if (res?.data?.accessToken) {
                     setSuccess(res.message)
                     storeUserInfo({ accessToken: res?.data?.accessToken })

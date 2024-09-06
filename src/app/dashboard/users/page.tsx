@@ -5,10 +5,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import {
     DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import {
@@ -24,26 +20,28 @@ import { MoreHorizontal, UserCog, Trash, Ban } from 'lucide-react'
 import { getAllUsers } from '@/services/actions/users'
 import RoleChange from '@/components/Interface/actionButton/RoleChange'
 
-type Role = 'Admin' | 'Moderator' | 'User'
+type Role = 'Admin' | 'FACULTY' | 'User'
 
-interface User {
-    id: number
-    name: string
-    email: string
-    role: Role
-    photo: string
+export interface IUser {
+    id: string;
+    name: string;
+    email?: string;
+    profilePhoto: string | null;
+    role: Role;
+    status: string;
 }
+
 
 
 const UserPage = async () => {
 
-    const userList: User[] = await getAllUsers()
+    const userList: IUser[] = await getAllUsers()
 
     const getRoleBadgeColor = (role: Role): string => {
         switch (role) {
             case 'Admin':
                 return 'bg-red-100 text-red-800'
-            case 'Moderator':
+            case 'FACULTY':
                 return 'bg-yellow-100 text-yellow-800'
             default:
                 return 'bg-green-100 text-green-800'
@@ -67,7 +65,7 @@ const UserPage = async () => {
                         <TableRow key={user.id}>
                             <TableCell>
                                 <Avatar>
-                                    <Image src={user.photo} alt={user.name} width={40} height={40} />
+                                    <Image src={user?.profilePhoto || ""} alt={user.name} width={40} height={40} />
                                     <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
                                 </Avatar>
                             </TableCell>

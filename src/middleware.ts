@@ -41,7 +41,6 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  console.log("Requested Pathname:", pathname);
 
   if (token) {
     let user: CustomJwtPayload;
@@ -50,14 +49,14 @@ export async function middleware(request: NextRequest) {
       user = jwtDecode<CustomJwtPayload>(token);
     } catch (error) {
       console.error("Error decoding token:", error);
-      url.pathname = "/signin";
+      url.pathname = "/auth/login";
       return NextResponse.redirect(url);
     }
 
     // Redirect to login if the token is expired or invalid
     if (!user.exp || user.exp < Date.now() / 1000) {
       console.log("Token expired or invalid");
-      url.pathname = "/signin";
+      url.pathname = "/auth/login";
       return NextResponse.redirect(url);
     }
 
@@ -68,10 +67,10 @@ export async function middleware(request: NextRequest) {
     const isSuperAdminPath = ADMIN_ROUTES.includes(pathname);
     const isUserPath = USER_ROUTES.includes(pathname);
 
-    console.log("User Role:", role);
-    console.log("Is Admin Path:", isAdminPath);
-    console.log("Is Super Admin Path:", isSuperAdminPath);
-    console.log("Is User Path:", isUserPath);
+    // console.log("User Role:", role);
+    // console.log("Is Admin Path:", isAdminPath);
+    // console.log("Is Super Admin Path:", isSuperAdminPath);
+    // console.log("Is User Path:", isUserPath);
 
     // Redirect to not-found page if access is unauthorized
     if ((isAdminPath && role == 'FACULTY')) {
@@ -110,7 +109,7 @@ return NextResponse.next();
 
     // Redirect to login page if no token is found
     console.log("No token found");
-    url.pathname = "/signin";
+    url.pathname = "/auth/login";
     return NextResponse.redirect(url);
   }
 

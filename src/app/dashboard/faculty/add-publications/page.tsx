@@ -14,9 +14,9 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { submitPublication } from '@/services/actions/publication'
 import { getUserInfo } from '@/services/auth.service'
 import { toast } from 'sonner'
+import { submitPublication } from '@/services/actions/fpublication'
 
 
 type FormData = {
@@ -26,7 +26,8 @@ type FormData = {
     description: string;
     link: string;
     authors: string;
-    date: string; // Changed to string
+    date: string;
+    vanue: string;
     image?: File[];
     category: string; // Added category field
 }
@@ -40,8 +41,9 @@ export default function Page() {
     const onSubmit: SubmitHandler<FieldValues> = async (data) => {
 
         const formData = new FormData();
-
-
+        if (data.image) {
+            formData.append('file', data.image[0]);
+        }
         data = ({
             ...data,
             date: data.date, // No need to format the date if it's already in ISO format
@@ -118,10 +120,11 @@ export default function Page() {
                             </div>
 
                             <div className="space-y-2">
-                                <Label htmlFor="photo">Photo</Label>
+                                <Label htmlFor="photo">vanue</Label>
                                 <Input
-                                    type="file"
-                                    {...register('image', { required: false })} // Updated to be optional
+                                    id="authors"
+                                    {...register("vanue", { required: "Authors are required" })}
+                                    placeholder="Enter authors"
                                 />
                             </div>
 

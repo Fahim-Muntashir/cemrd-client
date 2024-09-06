@@ -8,10 +8,7 @@ import { CalendarIcon, UsersIcon, ArrowLeftIcon } from "lucide-react"
 import Link from 'next/link';
 
 const SinglePublication = async ({ params }: { params: { id: string } }) => {
-
     const data = await getSinglePublication(params.id);
-    console.log(data);
-
     return (
         <Container>
             <div className="container mx-auto px-4 py-8 max-w-4xl">

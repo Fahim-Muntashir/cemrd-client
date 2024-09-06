@@ -110,7 +110,23 @@ export type Employee = {
   profile_picture?: string | null; // Profile picture can be a string (URL) or null (if no picture)
 };
 
-export const navItems: NavItem[] = [
+export const publicItems: NavItem[] = [
+
+  {
+    title: 'Login',
+    href: '/',
+    icon: 'login',
+    label: 'login'
+  }
+];
+
+export const adminItems: NavItem[] = [
+  {
+    title: 'Profile',
+    href: '/dashboard/profile',
+    icon: 'profile',
+    label: 'profile'
+  },
   {
     title: 'Dashboard',
     href: '/dashboard',
@@ -136,14 +152,41 @@ export const navItems: NavItem[] = [
     label: 'profile'
   },
   {
-    title: 'Kanban',
-    href: '/dashboard/kanban',
-    icon: 'kanban',
-    label: 'kanban'
-  },
-  {
     title: 'Login',
     href: '/',
+    icon: 'login',
+    label: 'login'
+  }
+];
+
+export const facultyItems: NavItem[] = [
+  {
+    title: 'Home',
+    href: '/',
+    icon: 'kanban',
+    label: 'profile'
+  },
+  {
+    title: 'Profile',
+    href: '/dashboard/profile',
+    icon: 'profile',
+    label: 'profile'
+  },
+  {
+    title: 'Add Publications',
+    href: '/dashboard/faculty/add-publications',
+    icon: 'add',
+    label: 'employee'
+  },
+  {
+    title: 'Manage Publications',
+    href: '/dashboard/faculty/manage-publications',
+    icon: 'edit',
+    label: 'profile'
+  },
+  {
+    title: 'Login ',
+    href: '/auth/login',
     icon: 'login',
     label: 'login'
   }

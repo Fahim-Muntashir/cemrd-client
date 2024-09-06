@@ -6,7 +6,8 @@ import { FaCircleChevronLeft } from "react-icons/fa6";
 import { DashboardNav } from './dashboard-nav';
 import { useSidebar } from '@/hooks/useSidebar';
 import Image from 'next/image';
-import { navItems } from '../../../constants/data';
+import { publicItems, adminItems, facultyItems } from '../../../constants/data';
+import { getUserInfo } from '@/services/auth.service';
 
 type SidebarProps = {
     className?: string;
@@ -18,6 +19,19 @@ export default function Sidebar({ className }: SidebarProps) {
     const handleToggle = () => {
         toggle();
     };
+
+    const user = getUserInfo();
+
+
+    let items;
+    if (user?.role === 'admin') {
+        items = adminItems;
+    } else if (user?.role === "faculty") {
+        items = facultyItems;
+    } else (
+        items = publicItems
+    )
+
 
     return (
 
@@ -49,7 +63,7 @@ export default function Sidebar({ className }: SidebarProps) {
             <div className="space-y-4 py-4">
                 <div className="px-3 py-2">
                     <div className="mt-3 space-y-1">
-                        <DashboardNav items={navItems} />
+                        <DashboardNav items={items} />
                     </div>
                 </div>
             </div>

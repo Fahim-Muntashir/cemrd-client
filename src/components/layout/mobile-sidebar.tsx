@@ -4,8 +4,8 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { useState } from 'react';
 import { DashboardNav } from './dashboard-nav';
 import { GiHamburgerMenu } from "react-icons/gi";
-import { navItems } from '../../../constants/data';
-
+import { publicItems, adminItems, facultyItems } from '../../../constants/data';
+import { getUserInfo } from '@/services/auth.service';
 // import { Playlist } from "../data/playlists";
 
 interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -13,6 +13,19 @@ interface SidebarProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export function MobileSidebar({ className }: SidebarProps) {
+
+
+    const user = getUserInfo();
+
+    let items;
+    if (user?.role === 'admin') {
+        items = adminItems;
+    } else if (user?.role === "faculty") {
+        items = facultyItems;
+    } else (
+        items = publicItems
+    )
+
     const [open, setOpen] = useState(false);
     return (
         <>
@@ -28,7 +41,7 @@ export function MobileSidebar({ className }: SidebarProps) {
                             </h2>
                             <div className="space-y-1">
                                 <DashboardNav
-                                    items={navItems}
+                                    items={items}
                                     isMobileNav={true}
                                     setOpen={setOpen}
                                 />

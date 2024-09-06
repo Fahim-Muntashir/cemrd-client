@@ -17,8 +17,6 @@ export default function DashboardLayout({
             <Sidebar />
             <main className="w-full flex-1 overflow-hidden">
                 <Header />
-
-
                 {children}
             </main>
         </div>
