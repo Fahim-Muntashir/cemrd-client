@@ -1,5 +1,6 @@
 
 import { Card, CardContent } from "@/components/ui/card"
+import Image from "next/image";
 import Link from "next/link"
 import { FaUsers } from "react-icons/fa"
 
@@ -19,17 +20,13 @@ export type Publication = {
 
 
 export default function PubCards({ publication }: { publication: Publication }) {
+    console.log(publication, "Asdfasdf");
     return (
         <Card className="w-full max-w-lg my-4">
-            <CardContent className="grid gap-4">
-                <img
-                    src={publication?.image}
-                    alt="Blog post cover image"
-                    width="400"
-                    height="240"
-                    className="mt-5 rounded-md object-cover"
-                    style={{ aspectRatio: "400/260", objectFit: "cover" }}
-                />
+            <CardContent className="grid gap-4 mt-4">
+                <h3 className="text-justify w-full ">
+                    {publication?.title}
+                </h3>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <CalendarDaysIcon className="w-4 h-4" />
                     <span>
@@ -45,9 +42,7 @@ export default function PubCards({ publication }: { publication: Publication }) 
                         className="w-6 h-6" />
                     <span>{publication?.authors}</span>
                 </div>
-                <h3 className="font-semibold text-justify">
-                    {publication?.title}
-                </h3>
+
                 <div className="flex justify-end">
                     <Link href={`/publications/${publication?.id}`} className="inline-flex items-center gap-2 text-primary" prefetch={false}>
                         See More

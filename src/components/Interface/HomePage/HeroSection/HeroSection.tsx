@@ -13,6 +13,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 export default function HeroSection() {
     return (
@@ -31,104 +32,48 @@ export default function HeroSection() {
         >
             <SwiperSlide>
 
-                <section className="w-full bg-gradient-to-r from-primary to-slate-700 py-20 ">
-                    <div className="container mx-auto px-4 md:px-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                            <div className="space-y-6">
-                                <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground">
-                                    Unlock Your Potential with Our Solutions
-                                </h1>
-                                <p className="text-lg md:text-xl text-secondary-foreground">
-                                    Discover how our innovative products can transform your business and take it to new heights.
-                                </p>
-                                <Link
-                                    href="#"
-                                    className="inline-flex items-center justify-center h-12 px-8 rounded-md bg-primary text-primary-foreground font-medium transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                                    prefetch={false}
-                                >
-                                    Get Started
-                                </Link>
-                            </div>
-                            <div className="hidden md:block">
-                                <img
-                                    src="/placeholder.svg"
-                                    width="600"
-                                    height="400"
-                                    alt="Hero Banner"
-                                    className="mx-auto rounded-lg shadow-lg"
-                                    style={{ aspectRatio: "600/400", objectFit: "cover" }}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </section>                    </SwiperSlide>
-            <SwiperSlide>
+                <section className="w-full bg-gradient-to-r from-blue-900 to-slate-900 py-20 ">
+                    <Container>
+                        <div className="mx-auto px-4 md:px-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                                <div className="space-y-6">
+                                    <h1 className="text-3xl md:text-6xl font-bold text-primary-foreground">
+                                        Center for Multidisciplinary Research and Development
+                                    </h1>
+                                    <p className="text-lg md:text-xl text-gray-100">
+                                        Pioneering Innovation and Knowledge Advancement for a Sustainable Future
+                                    </p>
 
-                <section className="w-full bg-gradient-to-r from-primary to-secondary py-20">
-                    <div className="container mx-auto px-4 md:px-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                            <div className="space-y-6">
-                                <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground">
-                                    Unlock Your Potential with Our Solutions
-                                </h1>
-                                <p className="text-lg md:text-xl text-secondary-foreground">
-                                    Discover how our innovative products can transform your business and take it to new heights.
-                                </p>
-                                <Link
-                                    href="#"
-                                    className="inline-flex items-center justify-center h-12 px-8 rounded-md bg-primary text-primary-foreground font-medium transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                                    prefetch={false}
-                                >
-                                    Get Started
-                                </Link>
-                            </div>
-                            <div className="hidden md:block">
-                                <img
-                                    src="/placeholder.svg"
-                                    width="600"
-                                    height="400"
-                                    alt="Hero Banner"
-                                    className="mx-auto rounded-lg shadow-lg"
-                                    style={{ aspectRatio: "600/400", objectFit: "cover" }}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </section>                    </SwiperSlide>
-            <SwiperSlide>
 
-                <section className="w-full bg-gradient-to-r from-primary to-secondary py-20 ">
-                    <div className="container mx-auto px-4 md:px-6">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                            <div className="space-y-6">
-                                <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground">
-                                    Unlock Your Potential with Our Solutions
-                                </h1>
-                                <p className="text-lg md:text-xl text-secondary-foreground">
-                                    Discover how our innovative products can transform your business and take it to new heights.
-                                </p>
-                                <Link
-                                    href="#"
-                                    className="inline-flex items-center justify-center h-12 px-8 rounded-md bg-primary text-primary-foreground font-medium transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
-                                    prefetch={false}
-                                >
-                                    Get Started
-                                </Link>
-                            </div>
-                            <div className="hidden md:block">
-                                <img
-                                    src="/placeholder.svg"
-                                    width="600"
-                                    height="400"
-                                    alt="Hero Banner"
-                                    className="mx-auto rounded-lg shadow-lg"
-                                    style={{ aspectRatio: "600/400", objectFit: "cover" }}
-                                />
+                                    <Link
+                                        href="/about"
+                                        className="inline-flex items-center justify-center h-12 px-8 rounded-md bg-[#16cdbb]
+                                        text-primary-foreground font-medium transition-colors hover:bg-[#711576]focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                                        prefetch={false}
+                                    >
+                                        Explore Now
+                                    </Link>
+                                </div>
+                                <div className="hidden md:block">
+                                    <img
+                                        src="https://images.pexels.com/photos/159751/book-address-book-learning-learn-159751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                        width="600"
+                                        height="400"
+                                        alt="Hero Banner"
+                                        className="mx-auto rounded-lg shadow-lg"
+                                        style={{ aspectRatio: "600/400", objectFit: "cover" }}
+                                    />
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </Container>
+
                 </section>
+
             </SwiperSlide>
+
+
+
 
         </Swiper>
 

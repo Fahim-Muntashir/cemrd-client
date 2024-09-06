@@ -50,7 +50,7 @@ export async function deleteSingleData(link: string) {
 export async function updatePublication(formData: FormData, id: string) {
     console.log(formData, "from af");
 
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/publications/update-publication/${id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/faculty-publications/update-publication/${id}`, {
         method: 'PATCH',
         credentials: 'include',
         body: formData,

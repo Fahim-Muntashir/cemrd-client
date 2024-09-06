@@ -1,8 +1,52 @@
 import React from 'react';
-import PubCards from '../../common/PubCard';
+import PubCards, { Publication } from '../../common/PubCard';
 import Container from '@/components/Shared/Container';
 import CommonHeader from '../../common/CommonHeader';
 import Link from 'next/link';
+
+const topPublication: Publication[] = [
+    {
+        id: "",
+        name: "asdfasdf",
+        image: "",
+        title: "string",
+        subtitle: "string",
+        description: "string",
+        date: "string", // ISO date string
+        authors: "string",
+        category: "string",
+        link: "string",
+        userInfoId: "asdfasdf"
+    },
+    {
+        id: "",
+        name: "asdfasdf",
+        image: "",
+        title: "string",
+        subtitle: "string",
+        description: "string",
+        date: "string", // ISO date string
+        authors: "string",
+        category: "string",
+        link: "string",
+        userInfoId: "asdfasdf"
+    },
+
+    {
+        id: "",
+        name: "asdfasdf",
+        image: "",
+        title: "string",
+        subtitle: "string",
+        description: "string",
+        date: "4/5/2", // ISO date string
+        authors: "string",
+        category: "string",
+        link: "string",
+        userInfoId: "asdfasdf"
+
+    }
+]
 
 const Publications = () => {
     return (
@@ -17,9 +61,12 @@ const Publications = () => {
 "
             ></CommonHeader>
             <div className='grid gap-8 lg:grid-cols-3 md:grid-cols-2 '>
-                <PubCards></PubCards>
-                <PubCards></PubCards>
-                <PubCards></PubCards>
+                {
+                    topPublication.map((data) => (
+                        <PubCards publication={data}></PubCards>
+
+                    ))
+                }
             </div>
 
             <div className="mt-8 mb-8 flex justify-center">

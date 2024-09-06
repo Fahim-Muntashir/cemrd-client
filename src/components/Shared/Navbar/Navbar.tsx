@@ -1,9 +1,32 @@
+'use client'
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetTrigger, SheetContent } from "@/components/ui/sheet"
 import dynamic from "next/dynamic"
 import Container from "../Container"
 import Image from "next/image"
+import { usePathname } from 'next/navigation'
+const navItem = [
+    {
+        name: "Home",
+        href: "/"
+    }, {
+        name: "Research",
+        href: "/research"
+    }, {
+        name: "Publications",
+        href: "/publications"
+    },
+    {
+        name: "Contact",
+        href: "/contact"
+
+    }, {
+        name: "Team",
+        href: "/team"
+
+    }
+]
 
 export default function Navbar() {
 
@@ -11,7 +34,8 @@ export default function Navbar() {
         {
             ssr: false
         })
-
+    const pathname = usePathname()
+    console.log(pathname);
 
     return (
         <header className="sticky top-0 z-50 w-full border-b bg-white dark:border-gray-800 dark:bg-gray-950">
@@ -25,34 +49,23 @@ export default function Navbar() {
                         <span className="sr-only">Acme Inc</span>
                     </Link>
                     <nav className="hidden items-center gap-6 text-sm font-medium md:flex">
-                        <Link
-                            href="/"
-                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                            prefetch={false}
-                        >
-                            Home
-                        </Link>
-                        <Link
-                            href="research"
-                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                            prefetch={false}
-                        >
-                            Research
-                        </Link>
-                        <Link
-                            href="/publications"
-                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                            prefetch={false}
-                        >
-                            Publications
-                        </Link>
-                        <Link
-                            href="#"
-                            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                            prefetch={false}
-                        >
-                            Contact
-                        </Link>
+
+                        {navItem.map((item) => (
+                            <Link
+                                key={item.href}
+                                href={item.href}
+                                className={`${pathname === item.href ? 'text-blue-500' : ''}`}
+                                prefetch={false}
+                            >
+                                {item.name}
+                            </Link>
+                        ))}
+
+
+
+
+
+
                     </nav>
                     <div className="flex items-center gap-4">
                         <p><AccountMenu></AccountMenu></p>
@@ -66,34 +79,17 @@ export default function Navbar() {
                             </SheetTrigger>
                             <SheetContent side="left" className="md:hidden">
                                 <div className="grid gap-4 p-4">
-                                    <Link
-                                        href="#"
-                                        className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                                        prefetch={false}
-                                    >
-                                        Home
-                                    </Link>
-                                    <Link
-                                        href="#"
-                                        className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                                        prefetch={false}
-                                    >
-                                        About
-                                    </Link>
-                                    <Link
-                                        href="#"
-                                        className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                                        prefetch={false}
-                                    >
-                                        Services
-                                    </Link>
-                                    <Link
-                                        href="#"
-                                        className="text-sm font-medium text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50"
-                                        prefetch={false}
-                                    >
-                                        Contact
-                                    </Link>
+                                    {navItem.map((item) => (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            className={`${pathname === item.href ? 'text-blue-500' : ''}`}
+                                            prefetch={false}
+                                        >
+                                            {item.name}
+                                        </Link>
+                                    ))}
+
                                 </div>
                             </SheetContent>
                         </Sheet>
