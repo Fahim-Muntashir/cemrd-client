@@ -13,6 +13,7 @@ const nextConfig = {
         port: "",
       },
       { protocol: "https", hostname: "res.cloudinary.com", port: "" },
+      { protocol: "https", hostname: "images.pexels.com", port: "" },
     ],
   },
 };

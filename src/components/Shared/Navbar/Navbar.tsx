@@ -10,10 +10,17 @@ const navItem = [
     {
         name: "Home",
         href: "/"
-    }, {
+    },
+    {
+        name: "About",
+        href: "/about"
+    },
+    {
         name: "Research",
         href: "/research"
-    }, {
+    },
+
+    {
         name: "Publications",
         href: "/publications"
     },
@@ -29,11 +36,11 @@ const navItem = [
 ]
 
 export default function Navbar() {
+    const AccountMenu = dynamic(() => import(
+        /* webpackPrefetch: true */
+        '@/components/Interface/AccountMenu/AccountMenu'
+    ), { ssr: false });
 
-    const AccountMenu = dynamic(() => import('@/components/Interface/AccountMenu/AccountMenu'),
-        {
-            ssr: false
-        })
     const pathname = usePathname()
     console.log(pathname);
 
@@ -89,6 +96,7 @@ export default function Navbar() {
                                             {item.name}
                                         </Link>
                                     ))}
+
 
 
                                 </div>

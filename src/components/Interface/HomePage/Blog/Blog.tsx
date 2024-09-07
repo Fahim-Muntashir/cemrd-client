@@ -46,6 +46,7 @@ export default function Blog() {
                             </Link>
                         </CardFooter>
                     </Card>
+                    
                     <Card className="p-5">
                         <CardContent className="grid gap-2">
                             <div>
@@ -73,7 +74,9 @@ export default function Blog() {
                                 Read More
                             </Link>
                         </CardFooter>
-                    </Card>          <Card className="p-5">
+                    </Card>
+                    
+                    <Card className="p-5">
                         <CardContent className="grid gap-2">
                             <div>
                                 <CardTitle className="">The Future of Web Development</CardTitle>

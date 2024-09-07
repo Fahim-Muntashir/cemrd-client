@@ -34,7 +34,7 @@ export default function AccountMenu() {
                     className="flex items-center space-x-2"
                 >
                     <img
-                        src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&ga=GA1.1.2070558022.1715361181&semt=ais_hybrid"
+                        src={`${userInfo.profile || "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&ga=GA1.1.2070558022.1715361181&semt=ais_hybrid"}`}
                         alt="Profile"
                         className="w-10 h-10 rounded-full"
                     />
