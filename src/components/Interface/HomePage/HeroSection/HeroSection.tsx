@@ -37,7 +37,7 @@ export default function HeroSection() {
                         <div className="mx-auto px-4 md:px-6">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                                 <div className="space-y-6">
-                                    <h1 className="text-3xl md:text-6xl font-bold text-primary-foreground">
+                                    <h1 className="text-3xl md:text-6xl font-bold text-gray-50">
                                         Center for Multidisciplinary Research and Development
                                     </h1>
                                     <p className="text-lg md:text-xl text-gray-100">

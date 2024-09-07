@@ -1,11 +1,12 @@
-import React from 'react';
-
-const page = () => {
-    return (
-        <div>
-            Helo
-        </div>
-    );
+import Adviser from "./Adviser";
+import Moon from "./Moon";
+const Team = () => {
+  return (
+    <div>
+      <Moon></Moon>
+      <Adviser></Adviser>
+    </div>
+  );
 };
 
-export default page;
+export default Team;

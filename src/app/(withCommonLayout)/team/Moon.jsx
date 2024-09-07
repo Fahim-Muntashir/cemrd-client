@@ -1,13 +1,14 @@
-import Container from "../../components/Shared/Container";
+import Container from "@/components/Shared/Container";
+import Image from "next/image";
 import {
   FaFacebookSquare,
   FaLinkedin,
-  FaGraduationCap,
-  FaFlask,
   FaResearchgate,
   FaGithub,
 } from "react-icons/fa";
 import { SiGooglescholar } from "react-icons/si";
+
+import moon from "@/../public/assests/moon.jpg";
 
 const Moon = () => {
   return (
@@ -72,9 +73,11 @@ const Moon = () => {
             </div>
           </div>
           <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
-            <img
-              src="https://i.ibb.co/QC44RFW/MSc-Defence-Propic.jpg"
-              alt=""
+            <Image
+              width={400}
+              height={300}
+              src={moon}
+              alt="Mahmudul Hasan"
               className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"
             />
           </div>

@@ -41,7 +41,7 @@ export default function AccountMenu() {
                 </button>
                 {dropdownOpen && (
                     <div className="absolute right-0 mt-2 w-48 bg-white border z-[2000] overflow-hidden border-gray-200 rounded-md shadow-lg">
-                        <Link href="/dashbord/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                        <Link href="/dashboard/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 font-sans font-bold">
                             {userInfo.name}
                         </Link>
                         <Link href="/dashboard/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
@@ -51,7 +51,7 @@ export default function AccountMenu() {
                             Dashbord
                         </Link>
 
-                        < Button className='w-full rounded-none text-white font-bold' variant={"destructive"} onClick={handleLogout}>
+                        <Button className='w-full rounded-none text-white font-bold' variant={"destructive"} onClick={handleLogout}>
                             <RiLogoutBoxLine className='text-xl mr-3' />
                             Logout
 
