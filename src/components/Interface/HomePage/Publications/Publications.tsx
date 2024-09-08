@@ -63,7 +63,7 @@ const Publications = () => {
             <div className='grid gap-8 lg:grid-cols-3 md:grid-cols-2 '>
                 {
                     topPublication.map((data) => (
-                        <PubCards publication={data}></PubCards>
+                        <PubCards key={data.authors} publication={data}></PubCards>
 
                     ))
                 }

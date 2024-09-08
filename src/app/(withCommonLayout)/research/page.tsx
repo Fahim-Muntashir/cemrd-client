@@ -7,14 +7,14 @@ const page = () => {
         <Container>
             <section className="mt-20 dark:bg-gray-800 dark:text-gray-100">
                 <div className="mx-auto space-y-12">
-                    <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
+                    <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row justify-center items-center">
                         <Image
                             src="https://upload.wikimedia.org/wikipedia/commons/1/11/Centralized_federated_learning_protocol.png"
                             alt="Centralized federated learning protocol"
                             className="h-80 dark:bg-gray-500 aspect-video"
-                            width={1199}  // Set appropriate width and height for each image
+                            width={400}  // Set appropriate width and height for each image
                             height={675}  // Keep aspect ratio consistent
-                            layout="responsive"
+                            layout=""
                         />
 
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
@@ -32,12 +32,11 @@ const page = () => {
                     </div>
                     <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
                         <Image
-                            src="https://upload.wikimedia.org/wikipedia/commons/1/11/Centralized_federated_learning_protocol.png"
+                            src="https://miro.medium.com/v2/resize:fit:1199/1*N8UXaiUKWurFLdmEhEHiWg.jpeg"
                             alt="Centralized federated learning protocol"
                             className="h-80 dark:bg-gray-500 aspect-video"
-                            width={1199}  // Set appropriate width and height for each image
+                            width={400}  // Set appropriate width and height for each image
                             height={675}  // Keep aspect ratio consistent
-                            layout="responsive"
                         />
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                             <span className="text-xs uppercase dark:text-gray-400"></span>
@@ -61,9 +60,8 @@ const page = () => {
                             src="https://www.kdnuggets.com/wp-content/uploads/tayo_8_best_libraries_machine_learning_explained_1.jpg"
                             alt="Best libraries for machine learning"
                             className="h-80 dark:bg-gray-500 aspect-video"
-                            width={1080}
+                            width={400}
                             height={675}
-                            layout="responsive"
                         />
 
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
@@ -87,10 +85,8 @@ const page = () => {
                             src="https://miro.medium.com/v2/resize:fit:1199/1*N8UXaiUKWurFLdmEhEHiWg.jpeg"
                             alt="Federated Learning"
                             className="h-80 dark:bg-gray-500 aspect-video"
-                            width={1199}
-                            height={675}
-                            layout="responsive"
-                        />
+                            width={400}
+                            height={675} />
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                             <span className="text-xs uppercase dark:text-gray-400"></span>
                             <h3 className="text-3xl font-bold">Business analysis</h3>
@@ -108,12 +104,11 @@ const page = () => {
                     </div>
                     <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
                         <Image
-                            src="https://www.simplilearn.com/ice9/free_resources_article_thumb/What_Is_Business_Analysis_And_Why_Every_Company_Needs_A_Business_Analyst.jpg"
+                            src="https://saisystems.com/health/wp-content/uploads/sites/3/2022/03/medicaldataprocessingblog-1080x675.png"
                             alt="Business Analysis"
                             className="h-80 dark:bg-gray-500 aspect-video"
-                            width={1080}
+                            width={400}
                             height={675}
-                            layout="responsive"
                         />
 
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
@@ -135,9 +130,8 @@ const page = () => {
                             src="https://media.istockphoto.com/id/1400779382/photo/network-security-background.webp?b=1&s=170667a&w=0&k=20&c=LdbvZLdObTWMYxkDBquy8WZBdGgnUB1i0ggVu7KSEUc="
                             alt="Network Security"
                             className="h-80 dark:bg-gray-500 aspect-video"
-                            width={1080}
+                            width={400}
                             height={675}
-                            layout="responsive"
                         />
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                             <span className="text-xs uppercase dark:text-gray-400"></span>
@@ -160,9 +154,8 @@ const page = () => {
                             src="https://d3i71xaburhd42.cloudfront.net/ec2cc76b9edad7a9c575c2ebf311906bd79c6671/7-Figure1-1.png"
                             alt="Figure 1"
                             className="h-80 dark:bg-gray-500 aspect-video"
-                            width={1199}
+                            width={400}
                             height={675}
-                            layout="responsive"
                         />
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                             <h3 className="text-3xl font-bold">Computational Sociology</h3>
