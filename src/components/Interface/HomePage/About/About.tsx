@@ -1,4 +1,5 @@
 import Container from "@/components/Shared/Container";
+import Image from "next/image";
 import {
     FaFacebook,
     FaGithub,
@@ -66,16 +67,24 @@ const About = () => {
                         </ul>
                     </div>
                     <div className="grid grid-cols-2 gap-4 mt-8">
-                        <img
-                            className="w-full rounded-lg"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
-                            alt="office content 1"
-                        />
-                        <img
-                            className="mt-4 w-full lg:mt-10 rounded-lg"
-                            src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
-                            alt="office content 2"
-                        />
+                        <div className="relative w-full h-64"> {/* Adjust height as needed */}
+                            <Image
+                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-2.png"
+                                alt="office content 1"
+                                layout="fill"
+                                objectFit="cover" // Ensure the image covers the area
+                                className="rounded-lg"
+                            />
+                        </div>
+                        <div className="relative w-full h-64 mt-4 lg:mt-10"> {/* Adjust height as needed */}
+                            <Image
+                                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/content/office-long-1.png"
+                                alt="office content 2"
+                                layout="fill"
+                                objectFit="cover" // Ensure the image covers the area
+                                className="rounded-lg"
+                            />
+                        </div>
                     </div>
                 </div>
             </section>

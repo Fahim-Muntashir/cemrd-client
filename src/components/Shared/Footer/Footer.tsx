@@ -6,6 +6,7 @@ import {
     FaYoutube,
 } from "react-icons/fa";
 import Container from "../Container";
+import Image from "next/image";
 
 const Footer = () => {
     return (
@@ -283,9 +284,10 @@ const Footer = () => {
                             <p className="text-xs text-gray-500 dark:text-gray-400">
                                 &copy; 2022.CeMRD. All rights reserved.
                             </p>
-                            <img
+                            <Image
+                                width={200}
+                                height={30}
                                 src="https://i.ibb.co/HpYr1kc/logo.png"
-                                className="w-40"
                                 alt=""
                             />{" "}
                         </div>

@@ -1,4 +1,5 @@
 import Container from "@/components/Shared/Container";
+import Image from "next/image";
 
 
 const page = () => {
@@ -7,11 +8,15 @@ const page = () => {
             <section className="mt-20 dark:bg-gray-800 dark:text-gray-100">
                 <div className="mx-auto space-y-12">
                     <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
-                        <img
+                        <Image
                             src="https://upload.wikimedia.org/wikipedia/commons/1/11/Centralized_federated_learning_protocol.png"
-                            alt=""
+                            alt="Centralized federated learning protocol"
                             className="h-80 dark:bg-gray-500 aspect-video"
+                            width={1199}  // Set appropriate width and height for each image
+                            height={675}  // Keep aspect ratio consistent
+                            layout="responsive"
                         />
+
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                             <span className="text-xs uppercase dark:text-gray-400"></span>
                             <h3 className="text-3xl font-bold">Federated Learning</h3>
@@ -26,10 +31,13 @@ const page = () => {
                         </div>
                     </div>
                     <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
-                        <img
-                            src="https://www.kdnuggets.com/wp-content/uploads/tayo_8_best_libraries_machine_learning_explained_1.jpg"
-                            alt=""
+                        <Image
+                            src="https://upload.wikimedia.org/wikipedia/commons/1/11/Centralized_federated_learning_protocol.png"
+                            alt="Centralized federated learning protocol"
                             className="h-80 dark:bg-gray-500 aspect-video"
+                            width={1199}  // Set appropriate width and height for each image
+                            height={675}  // Keep aspect ratio consistent
+                            layout="responsive"
                         />
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                             <span className="text-xs uppercase dark:text-gray-400"></span>
@@ -49,11 +57,15 @@ const page = () => {
                         </div>
                     </div>
                     <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
-                        <img
-                            src="https://miro.medium.com/v2/resize:fit:1199/1*N8UXaiUKWurFLdmEhEHiWg.jpeg"
-                            alt=""
+                        <Image
+                            src="https://www.kdnuggets.com/wp-content/uploads/tayo_8_best_libraries_machine_learning_explained_1.jpg"
+                            alt="Best libraries for machine learning"
                             className="h-80 dark:bg-gray-500 aspect-video"
+                            width={1080}
+                            height={675}
+                            layout="responsive"
                         />
+
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                             <h3 className="text-3xl font-bold">Deep Learning</h3>
                             <p className="my-6 dark:text-gray-400 text-justify">
@@ -71,10 +83,13 @@ const page = () => {
                 </div>
                 <div className=" mx-auto space-y-12 mt-12">
                     <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
-                        <img
-                            src="https://www.simplilearn.com/ice9/free_resources_article_thumb/What_Is_Business_Analysis_And_Why_Every_Company_Needs_A_Business_Analyst.jpg"
-                            alt=""
+                        <Image
+                            src="https://miro.medium.com/v2/resize:fit:1199/1*N8UXaiUKWurFLdmEhEHiWg.jpeg"
+                            alt="Federated Learning"
                             className="h-80 dark:bg-gray-500 aspect-video"
+                            width={1199}
+                            height={675}
+                            layout="responsive"
                         />
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                             <span className="text-xs uppercase dark:text-gray-400"></span>
@@ -92,11 +107,15 @@ const page = () => {
                         </div>
                     </div>
                     <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
-                        <img
-                            src="https://saisystems.com/health/wp-content/uploads/sites/3/2022/03/medicaldataprocessingblog-1080x675.png"
-                            alt=""
+                        <Image
+                            src="https://www.simplilearn.com/ice9/free_resources_article_thumb/What_Is_Business_Analysis_And_Why_Every_Company_Needs_A_Business_Analyst.jpg"
+                            alt="Business Analysis"
                             className="h-80 dark:bg-gray-500 aspect-video"
+                            width={1080}
+                            height={675}
+                            layout="responsive"
                         />
+
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                             <h3 className="text-3xl font-bold">Medical Data Processing</h3>
                             <p className="my-6 dark:text-gray-400 text-justify">
@@ -112,10 +131,13 @@ const page = () => {
                         </div>
                     </div>{" "}
                     <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row-reverse">
-                        <img
+                        <Image
                             src="https://media.istockphoto.com/id/1400779382/photo/network-security-background.webp?b=1&s=170667a&w=0&k=20&c=LdbvZLdObTWMYxkDBquy8WZBdGgnUB1i0ggVu7KSEUc="
-                            alt=""
+                            alt="Network Security"
                             className="h-80 dark:bg-gray-500 aspect-video"
+                            width={1080}
+                            height={675}
+                            layout="responsive"
                         />
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                             <span className="text-xs uppercase dark:text-gray-400"></span>
@@ -134,10 +156,13 @@ const page = () => {
                         </div>
                     </div>
                     <div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
-                        <img
+                        <Image
                             src="https://d3i71xaburhd42.cloudfront.net/ec2cc76b9edad7a9c575c2ebf311906bd79c6671/7-Figure1-1.png"
-                            alt=""
+                            alt="Figure 1"
                             className="h-80 dark:bg-gray-500 aspect-video"
+                            width={1199}
+                            height={675}
+                            layout="responsive"
                         />
                         <div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-900">
                             <h3 className="text-3xl font-bold">Computational Sociology</h3>

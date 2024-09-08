@@ -14,6 +14,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 
 export default function HeroSection() {
     return (
@@ -55,13 +56,14 @@ export default function HeroSection() {
                                     </Link>
                                 </div>
                                 <div className="hidden md:block">
-                                    <img
+                                    <Image
                                         src="https://images.pexels.com/photos/159751/book-address-book-learning-learn-159751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                                         width="600"
                                         height="400"
                                         alt="Hero Banner"
                                         className="mx-auto rounded-lg shadow-lg"
                                         style={{ aspectRatio: "600/400", objectFit: "cover" }}
+                                        layout="responsive"
                                     />
                                 </div>
                             </div>

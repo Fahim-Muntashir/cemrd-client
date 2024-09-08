@@ -8,6 +8,7 @@ import React from 'react';
 import { FaFacebookSquare, FaGithub, FaLinkedin, FaResearchgate } from 'react-icons/fa';
 import { SiGooglescholar } from 'react-icons/si';
 import { ArrowRightIcon, CalendarDaysIcon } from "lucide-react";
+import Image from "next/image";
 
 const page = async ({ params }: { params: { id: string } }) => {
 
@@ -20,7 +21,18 @@ const page = async ({ params }: { params: { id: string } }) => {
         <Container>
             <div className="p-6 md:px-0 lg:px-40 sm:p-12 dark:bg-gray-900 dark:text-gray-100">
                 <div className="flex flex-col space-y-4 md:space-y-0 md:space-x-8 lg:space-x-32 md:flex-row">
-                    <img src={faculty.profilePhoto} alt="asdfasdf" className="self-center object-cover flex-shrink-0 w-56 h-400 border rounded-sm md:justify-self-start dark:bg-gray-500 dark:border-gray-700" />
+
+
+
+
+                    <Image
+                        src={faculty?.profilePhoto || ""} // Fallback URL if profilePhoto is not available
+                        alt="Profile Image"
+                        width={224}  // Width of the image in pixels (equivalent to w-56 in Tailwind)
+                        height={400} // Height of the image in pixels
+                        className="self-center object-cover flex-shrink-0 border rounded-sm md:justify-self-start dark:bg-gray-500 dark:border-gray-700" // Apply Tailwind CSS classes
+                        layout="fixed" // Use fixed layout to maintain exact width and height
+                    />
                     <div className="flex flex-col py-32">
                         <h4 className="text-4xl mb-5 font-semibold text-center md:text-left">{faculty.name}</h4>
                         <p className="dark:text-gray-400 text-justify">Sed non nibh iaculis, posuere diam vitae, consectetur neque. Integer velit ligula, semper sed nisl in, cursus commodo elit. Pellentesque sit amet mi luctus ligula euismod lobortis ultricies et nibh.</p>

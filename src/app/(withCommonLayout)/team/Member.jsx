@@ -2,6 +2,7 @@
 "use server";
 import Container from "@/components/Shared/Container";
 import { getAllFaculty } from "@/services/actions/faculty";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn } from "react-icons/fa";
@@ -32,10 +33,13 @@ const Member = async () => {
             className="block sm:w-full rounded overflow-hidden shadow-lg my-10 bg-white p-6 hover:shadow-xl transition-shadow duration-300"
           >
             <div className="flex flex-col items-center w-full">
-              <img
-                className="w-32 h-32 rounded-full mx-auto object-cover"
-                src={faculty?.profilePhoto || "https://ibb.co.com/wQy6GCm"}
+              <Image
+                className="object-cover rounded-lg"
+                src={faculty?.profilePhoto || ""}
                 alt="Profile Image"
+                width={150} // Width of the image in pixels
+                height={200} // Height of the image in pixels
+                layout="intrinsic" // Maintain original aspect ratio
               />
               <div className="text-center mt-4">
                 <h2 className="text-xl font-bold">{faculty.name}</h2>

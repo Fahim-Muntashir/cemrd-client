@@ -7,6 +7,7 @@ import { RiLogoutBoxLine } from "react-icons/ri";
 import AuthButton from '../AuthButton/AuthButton';
 import { getUserInfo, removeUser } from '@/services/auth.service';
 import removeCookie from '@/utils/cookie';
+import Image from 'next/image';
 
 export default function AccountMenu() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -33,7 +34,9 @@ export default function AccountMenu() {
                     onClick={toggleDropdown}
                     className="flex items-center space-x-2"
                 >
-                    <img
+                    <Image
+                        width={300}
+                        height={300}
                         src={`${userInfo.profile || "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?size=626&ext=jpg&ga=GA1.1.2070558022.1715361181&semt=ais_hybrid"}`}
                         alt="Profile"
                         className="w-10 h-10 rounded-full"
