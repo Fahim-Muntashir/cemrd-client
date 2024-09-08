@@ -1,4 +1,5 @@
 import Container from "@/components/Shared/Container";
+import Image from "next/image";
 
 const FirstAt = () => {
   return (
@@ -16,7 +17,7 @@ const FirstAt = () => {
                 The Center for Multidisciplinary Research and Development
                 (CeMRD), founded by Mr. Mahmudul Hasan on October 8, 2021, is
                 committed to propelling innovation and advancing knowledge. The
-                organization's inception is rooted in a shared passion for
+                organization&rsquo;s inception is rooted in a shared passion for
                 exploration and a dedicated commitment to solving complex
                 problems.
               </p>
@@ -75,10 +76,13 @@ const FirstAt = () => {
             </div>
           </div>
           <div>
-            <img
+            <Image
               className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
-              src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
-              alt=""
+              src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260"
+              alt="Sample Image"
+              height={300}
+              width={100}
+              layout="responsive"
             />
           </div>
         </div>
