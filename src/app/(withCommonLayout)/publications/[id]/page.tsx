@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { CalendarIcon, UsersIcon, ArrowLeftIcon } from "lucide-react"
 import Link from 'next/link';
+import Image from 'next/image';
 
 const SinglePublication = async ({ params }: { params: { id: string } }) => {
     const data = await getSinglePublication(params.id);
@@ -18,11 +19,13 @@ const SinglePublication = async ({ params }: { params: { id: string } }) => {
                         <ArrowLeftIcon className="mr-2 h-4 w-4" /> Back
                     </Button>
                 </Link>
-
-                <img
-                    src={data?.image}
-                    alt={data?.title}
+                <Image
+                    src={data?.image || '/default-image.jpg'} // Fallback image if data?.image is undefined
+                    alt={data?.title || 'Image'}  // Fallback alt text
                     className="w-full h-64 object-cover rounded-lg mb-6"
+                    width={800}  // Adjust width according to your design
+                    height={400}  // Adjust height according to your design
+                    layout="responsive"  // Make the image responsive
                 />
 
                 <h1 className="text-3xl font-bold mb-2">{data?.title}</h1>
