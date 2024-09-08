@@ -1,3 +1,4 @@
+'use server';
 import Container from '@/components/Shared/Container';
 import { getSinglePublication } from '@/services/actions/publication';
 import React from 'react';
