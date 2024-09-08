@@ -11,8 +11,8 @@ const page = async () => {
         <Container>
             <div className='grid lg:grid-cols-3 gap-4 md:grid-cols-2'>
                 {
-                    res.map((publication, index) => (
-                        <PubCards key={index} publication={publication} />
+                    res.map((publication) => (
+                        <PubCards key={publication.id} publication={publication} />
                     ))
                 }
             </div>
