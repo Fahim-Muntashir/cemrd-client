@@ -25,7 +25,7 @@ export const LoginForm = () => {
     const [success, setSuccess] = useState<string | undefined>("");
 
     const [isPending, startTransition] = useTransition();
-
+    const [loading, setLoading] = useState(false);
     const form = useForm<z.infer<typeof LoginSchema>>({
         resolver: zodResolver(LoginSchema),
         defaultValues: {
@@ -34,12 +34,18 @@ export const LoginForm = () => {
         }
     })
 
+    if (loading) {
+        toast.loading("Waiting for login!")
+    }
+
     const onSubmit = async (values: z.infer<typeof LoginSchema>) => {
         setError("");
         setSuccess("");
         startTransition(async () => {
             try {
+                setLoading(true)
                 const res = await login(values)
+                setLoading(false);
                 if (res?.data?.accessToken) {
                     setSuccess(res.message)
                     storeUserInfo({ accessToken: res?.data?.accessToken })
@@ -58,6 +64,8 @@ export const LoginForm = () => {
             backButtonHref="/auth/register"
             showSocial
         >
+
+
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
                     <div className='space-y-4'>
