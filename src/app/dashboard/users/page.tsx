@@ -76,7 +76,7 @@ const UserPage = async () => {
                                     {user.role}
                                 </Badge>
                             </TableCell>
-                            <TableCell className="text-right">
+                            <TableCell className="text-right ">
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
                                         <Button variant="ghost" className="h-8 w-8 p-0">
@@ -84,7 +84,11 @@ const UserPage = async () => {
                                             <MoreHorizontal className="h-4 w-4" />
                                         </Button>
                                     </DropdownMenuTrigger>
+
                                     <RoleChange user={user}></RoleChange>
+
+
+
                                 </DropdownMenu>
                             </TableCell>
                         </TableRow>

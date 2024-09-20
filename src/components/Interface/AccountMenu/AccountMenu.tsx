@@ -13,6 +13,7 @@ export default function AccountMenu() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const userInfo = getUserInfo();
 
+    console.log(userInfo);
     const router = useRouter()
 
 
@@ -52,7 +53,7 @@ export default function AccountMenu() {
                             Profile
                         </Link>
 
-                        {(userInfo.role === "ADMIN" || userInfo.role === "FACULTY") ? (
+                        {(userInfo.role == "admin" || userInfo.role == "faculty") ? (
                             <Link href="/dashboard/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                                 Dashboard
                             </Link>
