@@ -20,7 +20,6 @@ export type Publication = {
 
 
 export default function PubCards({ publication }: { publication: Publication }) {
-    console.log(publication, "Asdfasdf");
     return (
         <Card className="w-full max-w-lg my-4">
             <CardContent className="grid gap-4 mt-4">

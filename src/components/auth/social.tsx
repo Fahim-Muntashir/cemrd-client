@@ -6,20 +6,21 @@ import { Button } from "../ui/button";
 import { signIn } from 'next-auth/react'
 import { socialUser } from "../../utils/social-user";
 import { storeUserInfo } from "@/services/auth.service";
+import { useRouter } from "next/navigation";
 
 export const Social = () => {
+    const router = useRouter()
     const handleSocialLogin = async (provider: string) => {
 
         await signIn(`${provider}`, {
             callbackUrl: "/",
         });
-        await socialUser()
 
         try {
             const res = await socialUser()
-            console.log(res);
             if (res?.data?.accessToken) {
                 storeUserInfo({ accessToken: res?.data?.accessToken })
+                router.push("/")
             }
         } catch (err: any) {
             console.log(err.message);
