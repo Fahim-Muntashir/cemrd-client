@@ -29,7 +29,7 @@ const RoleChange = ({ user }: { user: IUser }) => {
         <div >
 
             {
-                user.email === "fahimmuntashir07@gmail.com" || user.email === "faruque21912@gmail.com" ? (
+                user.email === "fahimmuntashir07@gmail.com" || user.email === "mahmudulmoon123@gmail.com" ? (
                     <></>
                 ) : (
                     <>
