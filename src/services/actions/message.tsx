@@ -17,3 +17,14 @@ export const addMessage = async (data: any) => {
 
     return message;
 }
+
+export async function getAllMessage() {
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/messages/all-message`, {
+        method: 'GET',
+        credentials: 'include',
+    });
+
+    const result = await response.json();
+    return result.data;
+}

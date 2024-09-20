@@ -152,6 +152,11 @@ export const adminItems: NavItem[] = [
     label: 'profile'
   },
   {
+    title: "Messages",
+    href: '/dashboard/messages',
+    icon: 'message',
+    label: 'messages'  },
+  {
     title: 'Login',
     href: '/',
     icon: 'login',
