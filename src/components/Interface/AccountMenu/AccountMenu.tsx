@@ -15,6 +15,7 @@ export default function AccountMenu() {
 
     const router = useRouter()
 
+
     const handleLogout = () => {
         removeCookie()
         removeUser();
@@ -50,9 +51,12 @@ export default function AccountMenu() {
                         <Link href="/dashboard/profile" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                             Profile
                         </Link>
-                        <Link href="/dashboard/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                            Dashbord
-                        </Link>
+
+                        {(userInfo.role === "ADMIN" || userInfo.role === "FACULTY") ? (
+                            <Link href="/dashboard/" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                Dashboard
+                            </Link>
+                        ) : null}
 
                         <Button className='w-full rounded-none text-white font-bold' variant={"destructive"} onClick={handleLogout}>
                             <RiLogoutBoxLine className='text-xl mr-3' />
